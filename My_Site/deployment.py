@@ -24,9 +24,8 @@ class WWWRedirectMiddleware:
 SECRET_KEY = os.environ['SECRET_KEY']
 
 ALLOWED_HOSTS = [
-    'mian-sadaf-093df2897493.herokuapp.com',
-    'miansadaf.tech',
-    'www.miansadaf.tech'
+    'https://mianzain-blog-eee53e8a6b0e.herokuapp.com/',
+    'blog.mianzain.tech',
 ]
 
 DEBUG = False
@@ -43,6 +42,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
  
