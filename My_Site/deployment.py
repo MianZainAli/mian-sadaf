@@ -13,7 +13,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['SECRET_KEY']
 
 ALLOWED_HOSTS = [
-    'www.mianzain-blog-eee53e8a6b0e.herokuapp.com',
+    'mianzain-blog-eee53e8a6b0e.herokuapp.com',
     'blog.mianzain.tech',
 ]
 
