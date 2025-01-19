@@ -3,23 +3,12 @@ import os
 from django.http import HttpResponsePermanentRedirect
 from .settings import *
 import dj_database_url
+import django_heroku
 
+django_heroku.settings(locals())
 
-class WWWRedirectMiddleware:
-    def __init__(self, get_response):
-        self.get_response = get_response
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-    def __call__(self, request):
-        host = request.get_host()
-        if not host.startswith('www.'):
-            new_url = '{}://www.{}{}'.format(
-                'https' if request.is_secure() else 'http',
-                host,
-                request.path
-            )
-            return HttpResponsePermanentRedirect(new_url)
-        return self.get_response(request)
-    
 
 SECRET_KEY = os.environ['SECRET_KEY']
 
