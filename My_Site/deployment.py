@@ -24,7 +24,7 @@ class WWWRedirectMiddleware:
 SECRET_KEY = os.environ['SECRET_KEY']
 
 ALLOWED_HOSTS = [
-    'mianzain-blog-eee53e8a6b0e.herokuapp.com',
+    'www.mianzain-blog-eee53e8a6b0e.herokuapp.com',
     'blog.mianzain.tech',
 ]
 
