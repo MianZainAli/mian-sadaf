@@ -5,9 +5,18 @@ import django_heroku
 
 SECRET_KEY = os.environ['SECRET_KEY']
 
+DEBUG = env.bool('DEBUG', default=False)
+
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
-DEBUG = env.bool('DEBUG', default=False)
+CSRF_TRUSTED_ORIGINS = [
+    f'https://{host}' for host in ALLOWED_HOSTS if host
+] + [
+    f'http://{host}' for host in ALLOWED_HOSTS if host
+]
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_DOMAIN = ".mianzain.tech"
+
 
 DATABASES = {
     'default': dj_database_url.config()
