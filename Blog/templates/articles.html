@@ -20,25 +20,26 @@
             </div>
             <!--article content start here  -->
             <div class="article-list">
-                <h1 class="section-title">Latest</h1>
-                <a href="{% url "article_detail" recent_post.slug %}" class="latest-article">
-                    <img src="{{recent_post.image.url}}" alt="">
-                    <div class="latest-article-details">
-                        <div class="latest-article-minor-details">
-                            {% if recent_post.topic %}
-                                <p id="latest-article-category">{{recent_post.topics}}</p>
-                            {% endif %}
-                            <p>{{recent_post.date|date}}</p>
+                {% if recent_post and recent_post.slug %}
+                    <h1 class="section-title">Latest</h1>
+
+                    <a href="{% url "article_detail" recent_post.slug %}" class="latest-article">
+                        <img src="{{recent_post.image.url}}" alt="">
+                        <div class="latest-article-details">
+                            <div class="latest-article-minor-details">
+                                {% if recent_post.topic %}
+                                    <p id="latest-article-category">{{recent_post.topics}}</p>
+                                {% endif %}
+                                <p>{{recent_post.date|date}}</p>
+                            </div>
+                            
+                            <div class="latest-article-title">
+                                <h1>{{recent_post.title}}</h1>
+                                <p>{{latest_article.summary}}</p>
+                            </div>
                         </div>
-                        
-                        <div class="latest-article-title">
-                            <h1>{{recent_post.title}}</h1>
-                            <p>{{latest_article.summary}}</p>
-                        </div>
-                    </div>
-                    
-                    
-                </a>
+                    </a>
+                {% endif %}
                 <h1 class="section-title">All Articles</h1>
                 <div class="article-by-topic">
                     <div class="dragging-icon">

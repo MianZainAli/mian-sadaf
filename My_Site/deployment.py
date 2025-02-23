@@ -10,9 +10,9 @@ DEBUG = env.bool('DEBUG', default=False)
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
 CSRF_TRUSTED_ORIGINS = [
-    f'https://{host}' for host in ALLOWED_HOSTS if host
-] + [
     f'http://{host}' for host in ALLOWED_HOSTS if host
+] + [
+    f'https://{host}' for host in ALLOWED_HOSTS if host
 ]
 
 
