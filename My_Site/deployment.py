@@ -14,8 +14,6 @@ CSRF_TRUSTED_ORIGINS = [
 ] + [
     f'http://{host}' for host in ALLOWED_HOSTS if host
 ]
-CSRF_COOKIE_SECURE = True
-CSRF_COOKIE_DOMAIN = ".mianzain.tech"
 
 
 DATABASES = {
